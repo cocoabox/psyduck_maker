@@ -46,13 +46,17 @@ $(function(){
             for (var i = 0; i <= MAX_INDEX; ++i) {
                 var idx = "" + i;
                 if (idx.length < 2) { idx = "0" + idx; }
-                var fn = idx + ".fn";
+                var fn = idx + ".png";
 
                 image_urls[idx] = fn;
                 window.LOADING[fn] = true;
                 console.log("loading", fn);
                 var on_done_or_error =  function(ev){
                     window.setTimeout(function(){
+                        var src = $(this).attr("src");
+                        window.LOADING[src] = false;
+                        console.log("preload end:", src);
+
                         /* detect if all images are loaded; if true then hide
                          * the loading screen */
                         var still_loading = false;
