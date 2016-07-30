@@ -44,7 +44,7 @@ $(function(){
             window.LOADING = {};
 
             for (var i = 0; i <= MAX_INDEX; ++i) {
-                var idx = "" + i,;
+                var idx = "" + i;
                 if (idx.length < 2) { idx = "0" + idx; }
                 var fn = idx + ".fn";
 
