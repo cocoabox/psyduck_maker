@@ -169,6 +169,10 @@ $(function(){
 
 
     body.on("click", "#save_image_button", function(ev){
+        if(! $(".ul.images .caption").length) {
+            alert("画像がないっす");
+            return;
+        }
         var shift = ev.shiftKey,
             images = $("ul.images").addClass("saving"),
             height = images.outerHeight(),
