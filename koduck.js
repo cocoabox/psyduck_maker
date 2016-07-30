@@ -169,7 +169,7 @@ $(function(){
 
 
     body.on("click", "#save_image_button", function(ev){
-        if(! $(".ul.images .caption").length) {
+        if(! $("ul.images .caption").length) {
             alert("画像がないっす");
             return;
         }
