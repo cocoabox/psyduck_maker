@@ -74,8 +74,6 @@ $(function(){
                     .attr({src: fn})
                     .on("load", on_done_or_error)
                     .on("error", on_done_or_error);
-                    
-                });
             }
         }
 
