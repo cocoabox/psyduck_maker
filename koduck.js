@@ -66,10 +66,10 @@ $(function(){
                                     still_loading = true;
                                 }
                             }
-                            if (! still_loading) {
-                                console.log("done loading");
-                                $("#loading").hide();
-                            }
+                        }
+                        if (! still_loading) {
+                            console.log("done loading");
+                            $("#loading").hide();
                         }
                     },300);
                 };
