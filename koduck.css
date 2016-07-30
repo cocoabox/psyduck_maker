@@ -174,4 +174,34 @@ ul.images.saving {
     font-size: 1.2em;
     line-height: 1.6em; }
 
-/*# sourceMappingURL=koduck.css.map */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+  #heading {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    background: rgba(0, 180, 180, 0.3);
+    z-index: 999; }
+
+  .container {
+    position: relative;
+    left: 0;
+    margin: 0;
+    text-align: center; }
+
+  ul.images {
+    width: 17em; }
+
+  #save_image_button {
+    position: relative;
+    bottom: inherit;
+    left: 0;
+    height: 4em;
+    width: 100%;
+    outline: none;
+    transform: none;
+    margin-top: 2.5em;
+    -webkit-transform: none;
+    -moz-transform: none; } }
+/* end media query */
