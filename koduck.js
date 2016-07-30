@@ -36,13 +36,37 @@ $(function(){
             tag.setAttribute('type','text/javascript');
             document.head.appendChild(tag);
             console.log("image data served from images_data.js");
+            $("#loading").hide();
         }
         else {
             /* running on a web server */
+            $("#loading").show();
+            window.LOADING = {};
+
             for (var i = 0; i <= MAX_INDEX; ++i) {
-                var idx = "" + i;
+                var idx = "" + i, 
+                    fn = idx + ".png";
                 if (idx.length < 2) { idx = "0" + idx; }
-                image_urls[idx] = idx + ".png";
+                image_urls[idx] = fn;
+                window.loading[fn] = true;
+                $('<img/>').attr({src: index + ".png"}).on("load", function(ev){
+                    window.setTimeout(function(){
+                        /* detect if all images are loaded; if true then hide
+                         * the loading screen */
+                        var still_loading = false;
+                        for (var k in window.LOADING) {
+                            if (window.LOADING.hasOwnProperty(k)) {
+                                if ( window.LOADING[k] ) {
+                                    still_loading = true;
+                                }
+                            }
+                            if (! still_loading) {
+                                console.log("done loading");
+                                $("#loading").hide();
+                            }
+                        }
+                    },300);
+                });
             }
         }
 
@@ -131,6 +155,7 @@ $(function(){
         images_item.data("image_index", idx);
         background.attr("src", get_image_url(idx));
     });
+
 
     body.on("click", "#save_image_button", function(ev){
         var shift = ev.shiftKey,
