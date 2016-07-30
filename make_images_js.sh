@@ -10,7 +10,7 @@ write_file() {
     COMMA=","
 
 }
-for F in `seq 0 12`; do
+for F in `seq 0 13`; do
     FN="${F}"
     if [ $F -lt 10 ]; then
         FN="0${F}"
