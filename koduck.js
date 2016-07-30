@@ -128,7 +128,8 @@ $(function(){
     });
 
     body.on("click", "#save_image_button", function(ev){
-        var images = $("ul.images").addClass("saving"),
+        var shift = ev.shiftKey,
+            images = $("ul.images").addClass("saving"),
             height = images.outerHeight(),
             width = images.outerWidth(),
             do_render = function() {
@@ -140,12 +141,49 @@ $(function(){
                     onrendered: function(canvas){ 
                         var url = canvas.toDataURL("image/jpeg");
                         images.removeClass("saving");
-                        window.open(url);
+                        if (! shift) {
+                            window.open(url);
+                        }
+                        else {
+                            // download
+                            var default_title = $(".caption:first").text(), 
+                                fn = prompt("ファイル名（.pngは不要）", default_title ? default_title : "コダック");
+                            if (fn) {
+                                var link = document.createElement('a');
+                                link.href = url;
+                                link.download = fn + ".png";
+                                document.body.appendChild(link);
+                                link.click();  
+                                setTimeout(function(){
+                                    document.body.removeChild(link);
+                                }, 500);
+                            }
+                        }
                     }
                 });
             };
 
         setTimeout(do_render, 300);
+    });
+
+    /* SHIFT キーを検出する */
+    body.on("keydown", function(ev) {
+        var key;
+        var isShift;
+        if (window.event) {
+            key = window.event.keyCode;
+            isShift = !!window.event.shiftKey; // typecast to boolean
+        } else {
+            key = ev.which;
+            isShift = !!ev.shiftKey;
+        }
+        if ( isShift ) {
+            $("#save_image_button").addClass("shift");
+        }
+
+    });
+    body.on("keyup", function() {
+        $("#save_image_button").removeClass("shift");
     });
     
     /* ---- initialize ---- */

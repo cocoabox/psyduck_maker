@@ -43,17 +43,31 @@ html, body, input {
     bottom: .5em;
     left: 50%;
     height: 4em;
+    width: 45%;
     padding: 0 1em;
     border: none;
     transform: translateX(-50%);
     font-size: 100%;
-    font-weight: 800;
+    font-weight: normal;
+    letter-spacing: .1em;
     box-sizing: border-box;
     background: rgba(0,200,0,.5);
     color: #fff;
     text-shadow: rgba(0,0,0,.3) 0 .1em .5em, #000 0 .1em .5em;
     cursor: pointer;
     outline : none;
+    em {
+        font-style: normal;
+        font-weight: 800;
+    }
+
+    .alt { display: none; }
+    .default { display: inline-block; }
+
+    &.shift {
+        .alt { display: inline-block; }
+        .default { display: none; }
+    }
 
 }
 
