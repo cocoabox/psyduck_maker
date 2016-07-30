@@ -186,7 +186,7 @@ $(function(){
                             window.location.href = url;
                         }
                         else if (! shift) {
-                            window.open(url, );
+                            window.open(url);
                         }
                         else {
                             // download
