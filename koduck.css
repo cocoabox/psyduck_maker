@@ -249,5 +249,8 @@ ul.images.saving {
     #save_image_button .default {
       display: none; }
     #save_image_button .mobile {
-      display: inline-block; } }
+      display: inline-block; }
+
+  ul.images.saving li#credit {
+    font-size: .6em; } }
 /* end media query */

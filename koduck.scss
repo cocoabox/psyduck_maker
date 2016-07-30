@@ -236,10 +236,10 @@ ul.images.saving {
         /* outer shadow */
         color: rgba(0,0,0,.7);
         text-shadow: #fff 0 0 1em, #fff 0 0 .5em;
-
-
     }
 }
+
+
 
 #loading {
     z-index: 1000;
@@ -301,6 +301,13 @@ ul.images {
     .default { display: none; }
     .mobile { display: inline-block; }
 }
+
+ul.images.saving {
+    li#credit {
+        font-size: .6em;
+    }
+}
+
 
 
 } /* end media query */
