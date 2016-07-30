@@ -44,13 +44,14 @@ $(function(){
             window.LOADING = {};
 
             for (var i = 0; i <= MAX_INDEX; ++i) {
-                var idx = "" + i, 
-                    fn = idx + ".png";
+                var idx = "" + i,;
                 if (idx.length < 2) { idx = "0" + idx; }
+                var fn = idx + ".fn";
+
                 image_urls[idx] = fn;
                 window.LOADING[fn] = true;
                 console.log("loading", fn);
-                $('<img/>').attr({src: fn}).on("load", function(ev){
+                var on_done_or_error =  function(ev){
                     window.setTimeout(function(){
                         /* detect if all images are loaded; if true then hide
                          * the loading screen */
@@ -67,6 +68,13 @@ $(function(){
                             }
                         }
                     },300);
+                };
+                /* preload image */
+                $('<img/>')
+                    .attr({src: fn})
+                    .on("load", on_done_or_error)
+                    .on("error", on_done_or_error);
+                    
                 });
             }
         }
