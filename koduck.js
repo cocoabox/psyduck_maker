@@ -50,7 +50,7 @@ $(function(){
                 image_urls[idx] = fn;
                 window.LOADING[fn] = true;
                 console.log("loading", fn);
-                $('<img/>').attr({src: index + ".png"}).on("load", function(ev){
+                $('<img/>').attr({src: fn}).on("load", function(ev){
                     window.setTimeout(function(){
                         /* detect if all images are loaded; if true then hide
                          * the loading screen */
