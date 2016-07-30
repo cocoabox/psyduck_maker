@@ -63,6 +63,7 @@ html, body, input {
 
     .alt { display: none; }
     .default { display: inline-block; }
+    .mobile { display: none; }
 
     &.shift {
         .alt { display: inline-block; }
@@ -253,6 +254,11 @@ ul.images {
     margin-top: 2.5em;
     -webkit-transform: none;
     -moz-transform: none;
+
+    .alt { display: none; }
+    .default { display: none; }
+    .mobile { display: inline-block; }
 }
+
 
 } /* end media query */

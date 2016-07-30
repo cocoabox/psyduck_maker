@@ -56,6 +56,8 @@ html, body, input {
     display: none; }
   #save_image_button .default {
     display: inline-block; }
+  #save_image_button .mobile {
+    display: none; }
   #save_image_button.shift .alt {
     display: inline-block; }
   #save_image_button.shift .default {
@@ -206,5 +208,11 @@ ul.images.saving {
     transform: none;
     margin-top: 2.5em;
     -webkit-transform: none;
-    -moz-transform: none; } }
+    -moz-transform: none; }
+    #save_image_button .alt {
+      display: none; }
+    #save_image_button .default {
+      display: none; }
+    #save_image_button .mobile {
+      display: inline-block; } }
 /* end media query */
