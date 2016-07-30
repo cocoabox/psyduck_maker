@@ -217,10 +217,7 @@ ul.images.saving {
     }
 }
 
-@media only screen 
-and (min-device-width : 414px) 
-and (max-device-width : 736px) {  
-
+@media only screen and (max-device-width : 736px) {  
 #heading {
     position: fixed;
     width: 100%;
@@ -229,6 +226,9 @@ and (max-device-width : 736px) {
     left: 0;
     background: rgba(0, 180, 180, 0.3);
     z-index: 999;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .container {
