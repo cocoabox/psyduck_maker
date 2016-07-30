@@ -52,8 +52,8 @@ $(function(){
                 window.LOADING[fn] = true;
                 console.log("loading", fn);
                 var on_done_or_error =  function(ev){
+                    var src = $(this).attr("src");
                     window.setTimeout(function(){
-                        var src = $(this).attr("src");
                         window.LOADING[src] = false;
                         console.log("preload end:", src);
 
