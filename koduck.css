@@ -1,0 +1,164 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0; }
+
+#spare_parts {
+  visibility: hidden; }
+
+html, body, input {
+  font-size: 11pt;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
+
+.container {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: .5em;
+  right: .5em;
+  top: 2.5em;
+  bottom: 5em;
+  overflow: scroll; }
+
+#heading {
+  font-size: 1.25em;
+  margin-left: .5em;
+  line-height: 2em;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center; }
+  #heading a {
+    text-decoration: none;
+    color: #11c; }
+    #heading a:hover {
+      text-decoration: underline; }
+
+#save_image_button {
+  position: absolute;
+  bottom: .5em;
+  left: 50%;
+  height: 4em;
+  padding: 0 1em;
+  border: none;
+  transform: translateX(-50%);
+  font-size: 100%;
+  font-weight: 800;
+  box-sizing: border-box;
+  background: rgba(0, 200, 0, 0.5);
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.3) 0 0.1em 0.5em, #000 0 0.1em 0.5em;
+  cursor: pointer;
+  outline: none; }
+
+ul.images {
+  position: relative;
+  list-style: none;
+  display: inline-block;
+  max-width: 100%; }
+  ul.images > li {
+    list-style: none;
+    display: inline-block;
+    width: 17em;
+    height: 21em;
+    vertical-align: top; }
+  ul.images li#add_image {
+    background: rgba(0, 0, 0, 0.3);
+    position: relative; }
+    ul.images li#add_image #add_image_button {
+      padding: 1em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -transform: translate(-50%, -50%);
+      outline: none;
+      cursor: pointer;
+      font-size: 2em;
+      color: #fff;
+      border: none;
+      background: transparent; }
+  ul.images li.images_item {
+    position: relative; }
+    ul.images li.images_item .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center; }
+    ul.images li.images_item .caption_area {
+      position: absolute;
+      top: 57%;
+      left: 2.5%;
+      right: 2.5%;
+      width: auto;
+      box-sizing: border-box;
+      vertical-align: top; }
+      ul.images li.images_item .caption_area * {
+        vertical-align: middle; }
+    ul.images li.images_item .text_box {
+      display: none; }
+    ul.images li.images_item .display_caption {
+      text-align: center;
+      overflow: hidden; }
+    ul.images li.images_item a.caption {
+      text-decoration: none;
+      color: #466b6e;
+      font-weight: lighter;
+      font-size: 1.3em;
+      line-height: 1.7em;
+      letter-spacing: 0em;
+      padding-left: .8em;
+      white-space: nowrap;
+      max-width: 85%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      cursor: text; }
+    ul.images li.images_item img.pencil {
+      height: 1em; }
+  ul.images li.images_item.editing .display_caption {
+    display: none; }
+  ul.images li.images_item.editing .text_box {
+    color: #466b6e;
+    text-align: center;
+    display: inline-block;
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+    background: transparent;
+    font-size: 110%;
+    outline: none;
+    box-sizing: border-box;
+    position: absolute;
+    left: 5%;
+    width: 90%; }
+  ul.images .image_change_button, ul.images .delete_button {
+    text-shadow: rgba(0, 0, 0, 0.3) 0 0.1em 0.5em, #000 0 0.1em 0.5em;
+    position: absolute;
+    color: #fff;
+    background: transparent;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    cursor: pointer; }
+    ul.images .image_change_button:active, ul.images .delete_button:active {
+      color: #466b6e; }
+  ul.images .image_change_button {
+    top: 35%; }
+    ul.images .image_change_button.image_prev_button {
+      left: 21%; }
+    ul.images .image_change_button.image_next_button {
+      left: 68%; }
+  ul.images .delete_button {
+    top: 2%;
+    left: 5%; }
+
+ul.images.saving {
+  border: none; }
+  ul.images.saving .delete_button, ul.images.saving .image_change_button, ul.images.saving #add_image {
+    display: none !important;
+    visibility: hidden !important; }
+  ul.images.saving li.images_item a.caption {
+    font-size: 1.2em;
+    line-height: 1.6em; }
+
+/*# sourceMappingURL=koduck.css.map */

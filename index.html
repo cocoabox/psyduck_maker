@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>コダック</title>
+    <link href="koduck.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery-3.1.0-min.js"></script>
+    <script type="text/javascript" src="koduck.js"></script>
+    <script type="text/javascript" src="libs/html2canvas.js"></script>
+</head>
+<body>
+    <h1 id="heading">コダックじぇねれーたー v1.0 by <a href="https://twitter.com/0xcocoa">0xcocoa</a></h1>
+    <div class="container">
+        <ul class="images">
+            <li id="add_image">
+                <button id="add_image_button">+</button>
+            </li>
+        </ul>
+    </div>
+    <button id="save_image_button">保存</button>
+    <div id="spare_parts">
+        <ul>
+            <li class="images_item" data-image_index="00">
+                <img class="background" src="" alt="background" />
+                <div class="caption_area">
+                    <input type="text" class="text_box" placeholder="" name="" value="コダック" />
+                    <div class="display_caption">
+                        <a class="caption" href="#">コダック</a>
+                        <img class="pencil" src="pencil.png" alt="" />
+                    </div>
+                </div>
+                <button class="delete_button">×</button>
+                <button class="image_change_button image_prev_button" data-index_change="-1">◀</button>
+                <button class="image_change_button image_next_button" data-index_change="+1">▶</button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
