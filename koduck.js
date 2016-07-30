@@ -182,11 +182,11 @@ $(function(){
                     onrendered: function(canvas){ 
                         var url = canvas.toDataURL("image/jpeg");
                         images.removeClass("saving");
-                        if (is_mobile) {
+                        if (is_mobile()) {
                             window.location.href = url;
                         }
                         else if (! shift) {
-                            window.open(url);
+                            window.open(url, );
                         }
                         else {
                             // download
