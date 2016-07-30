@@ -87,6 +87,9 @@ ul.images {
         height: 21em;
         vertical-align: top;
     }
+    li#credit {
+        display: none;
+    }
     li#add_image {
         background: rgba(0,0,0,.3);
         position:relative;
@@ -218,6 +221,23 @@ ul.images.saving {
             font-size: 1.2em;
             line-height: 1.6em;
         }
+    }
+    li#credit {
+        display: inline-block;
+        position: absolute;
+        bottom: .2em;
+        left: .6em;
+        color: #fff;
+        width: auto;
+        height: auto;
+        font-size: .4em;
+        font-weight: 600;
+        letter-spacing: .08em;
+        /* outer shadow */
+        color: rgba(0,0,0,.7);
+        text-shadow: #fff 0 0 1em, #fff 0 0 .5em;
+
+
     }
 }
 
