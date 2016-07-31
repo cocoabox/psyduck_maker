@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <!-- mobile に必要-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!-- og なんとか -->
+    <meta property="og:site_name" content="psyduck_maker" />
+    <meta property="og:title" content="コダックじぇねれーたー" />
+    <meta property="og:url" content="https://cocoabox.github.io/psyduck_maker/" />
+    <meta property="og:image" content="https://cocoabox.github.io/psyduck_maker/test.jpg" />
+    <!-- 通常の -->
+    <title>コダック</title>
+    <link href="koduck.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="libs/jquery-3.1.0-min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var frag = window.location.hash.substr(1);
+            $("#picture").attr(src, frag);
+        });
+    </script>
+</head>
+<body>
+    <img id="picture" src="" alt="" />
+</body>
+</html>
+

@@ -188,7 +188,6 @@ $(function(){
                         var url = canvas.toDataURL("image/jpeg"),
                             do_create_link = function(extras, return_link){
                                 var link = document.createElement('a');
-                                link.href = url;
                                 if (extras && typeof extras === "object") {
                                     for (var k in extras) {
                                         if (extras.hasOwnProperty(k)) {
@@ -218,7 +217,7 @@ $(function(){
                         if (window.navigator.standalone) {
                             // iOS webapp
                             // http://stackoverflow.com/questions/7930001/force-link-to-open-in-mobile-safari-from-a-web-app-with-javascript
-                            var a = do_create_link({target: "_blank"}, true),
+                            var a = do_create_link({href: "img.html#" + url, target: "_blank"}, true),
                                 dispatch = document.createEvent("HTMLEvents");
                             dispatch.initEvent("click", true, true);
                             a.dispatchEvent(dispatch);
@@ -236,7 +235,7 @@ $(function(){
                             var default_title = $(".caption:first").text(), 
                                 fn = prompt("ファイル名（.pngは不要）", default_title ? default_title : "コダック");
                             if (fn) {
-                                do_create_link({download: fn + ".jpg"});
+                                do_create_link({href: url, download: fn + ".jpg"});
                             }
                         }
                     }
