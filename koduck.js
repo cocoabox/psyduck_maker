@@ -184,12 +184,38 @@ $(function(){
                     width: width,
                     height: height,
                     onrendered: function(canvas){ 
-                        var url = canvas.toDataURL("image/jpeg");
+                        var url = canvas.toDataURL("image/jpeg"),
+                            do_create_link = function(extras){
+                                var link = document.createElement('a');
+                                link.href = url;
+                                link.download = fn + ".png";
+                                if (extras && typeof extras === "object") {
+                                    for (var k in extras) {
+                                        if (extras.hasOwnProperty(k)) {
+                                            link[k] = extras[k];
+                                        }
+                                    }
+                                }
+                                document.body.appendChild(link);
+                                link.click();  
+                                setTimeout(function(){
+                                    document.body.removeChild(link);
+                                }, 500);
+                            };
+
                         images.removeClass("saving");
-                        if (is_mobile()) {
+
+                        if (window.navigator.standalone) {
+                            // iOS webapp
+                            do_create_link({rel: "external"});
+
+                        }
+                        else if (is_mobile()) {
+                            // mobile safari etc
                             window.location.href = url;
                         }
                         else if (! shift) {
+                            // not mobile; no open new tab
                             window.open(url);
                         }
                         else {
@@ -197,14 +223,7 @@ $(function(){
                             var default_title = $(".caption:first").text(), 
                                 fn = prompt("ファイル名（.pngは不要）", default_title ? default_title : "コダック");
                             if (fn) {
-                                var link = document.createElement('a');
-                                link.href = url;
-                                link.download = fn + ".png";
-                                document.body.appendChild(link);
-                                link.click();  
-                                setTimeout(function(){
-                                    document.body.removeChild(link);
-                                }, 500);
+                                do_create_link();
                             }
                         }
                     }
