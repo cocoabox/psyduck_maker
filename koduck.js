@@ -213,6 +213,24 @@ $(function(){
 
                         if (window.navigator.standalone) {
                             // iOS webapp
+                            if (debug) {
+                                prompt("URL", url);
+                                if(window.confirm("window.open() ??")) {
+                                    window.open(url, "_blank");
+                                }
+                                else if ("do_create_link ??") {
+                                    alert("without parameters..");
+                                    do_create_link(); 
+                                    alert("with parameters..");
+                                    do_create_link({rel: "external", target: "_blank"});
+                                }
+                                else if ("window location ??") {
+                                    window.location.href = url;
+                                }
+
+
+                            }
+                            
                             do_create_link({rel: "external", target: "_blank"});
                         }
                         else if (is_mobile()) {
