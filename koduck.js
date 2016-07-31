@@ -211,7 +211,7 @@ $(function(){
                             alert(JSON.stringify(a));
                         }
 
-                        if (window.navigator.standalone) {
+                        if (is_debug) {
                             // iOS webapp
                             if (debug) {
                                 prompt("URL", url);
