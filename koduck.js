@@ -186,16 +186,20 @@ $(function(){
                     height: height,
                     onrendered: function(canvas){ 
                         var url = canvas.toDataURL("image/jpeg"),
-                            do_create_link = function(extras){
+                            do_create_link = function(extras, return_link){
                                 var link = document.createElement('a');
                                 link.href = url;
                                 if (extras && typeof extras === "object") {
                                     for (var k in extras) {
                                         if (extras.hasOwnProperty(k)) {
-                                            link[k] = extras[k];
+                                            link.setAttribute(k, extras[k]);
                                         }
                                     }
                                 }
+                                if (return_link) {
+                                    return link;
+                                }
+
                                 document.body.appendChild(link);
                                 link.click();  
                                 setTimeout(function(){
@@ -211,28 +215,13 @@ $(function(){
                             alert(JSON.stringify(a));
                         }
 
-                        if (is_debug || window.navigator.standalone) {
+                        if (window.navigator.standalone) {
                             // iOS webapp
-                            if (is_debug) {
-                                prompt("URL", url);
-                                if(window.confirm("window.open() ??")) {
-                                    window.open(url, "_blank");
-                                }
-                                else if ("do_create_link ??") {
-                                    alert("without parameters..");
-                                    do_create_link(); 
-                                    alert("with parameters..");
-                                    do_create_link({rel: "external", target: "_blank"});
-                                }
-                                else if ("window location ??") {
-                                    window.location.href = url;
-                                }
-
-                            }
-                            else {
-                                // not debug 
-                                do_create_link({rel: "external", target: "_blank"});
-                            }
+                            // http://stackoverflow.com/questions/7930001/force-link-to-open-in-mobile-safari-from-a-web-app-with-javascript
+                            var a = do_create_link({target: "_blank"}, true),
+                                dispatch = document.createEvent("HTMLEvents");
+                            dispatch.initEvent("click", true, true);
+                            a.dispatchEvent(dispatch);
                         }
                         else if (is_mobile()) {
                             // mobile safari etc
