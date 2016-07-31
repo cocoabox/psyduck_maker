@@ -208,13 +208,8 @@ $(function(){
 
                         images.removeClass("saving");
 
-                        if (is_debug) {
-                            var a={}; 
-                            for(var k in window.navigator){a[k]=window.navigator[k];};  
-                            alert(JSON.stringify(a));
-                        }
 
-                        if (window.navigator.standalone) {
+                        if (is_debug||window.navigator.standalone) {
                             // iOS webapp
                             // http://stackoverflow.com/questions/7930001/force-link-to-open-in-mobile-safari-from-a-web-app-with-javascript
                             var a = do_create_link({href: "img.html#" + url, target: "_blank"}, true),
