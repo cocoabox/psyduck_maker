@@ -211,9 +211,9 @@ $(function(){
                             alert(JSON.stringify(a));
                         }
 
-                        if (is_debug) {
+                        if (window.navigator.standalone) {
                             // iOS webapp
-                            if (debug) {
+                            if (is_debug) {
                                 prompt("URL", url);
                                 if(window.confirm("window.open() ??")) {
                                     window.open(url, "_blank");
@@ -228,10 +228,11 @@ $(function(){
                                     window.location.href = url;
                                 }
 
-
                             }
-                            
-                            do_create_link({rel: "external", target: "_blank"});
+                            else {
+                                // not debug 
+                                do_create_link({rel: "external", target: "_blank"});
+                            }
                         }
                         else if (is_mobile()) {
                             // mobile safari etc
