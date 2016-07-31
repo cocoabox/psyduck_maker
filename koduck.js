@@ -207,8 +207,9 @@ $(function(){
 
                         if (window.navigator.standalone) {
                             // iOS webapp
-                            do_create_link({rel: "external"});
-
+                            // do_create_link({rel: "external"});
+                            alert("open new link..");
+                            window.open(url, "new");
                         }
                         else if (is_mobile()) {
                             // mobile safari etc
