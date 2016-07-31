@@ -188,7 +188,7 @@ $(function(){
                             do_create_link = function(extras){
                                 var link = document.createElement('a');
                                 link.href = url;
-                                link.download = fn + ".png";
+                                link.download = fn + ".jpg";
                                 if (extras && typeof extras === "object") {
                                     for (var k in extras) {
                                         if (extras.hasOwnProperty(k)) {
