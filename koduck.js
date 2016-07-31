@@ -188,7 +188,6 @@ $(function(){
                             do_create_link = function(extras){
                                 var link = document.createElement('a');
                                 link.href = url;
-                                link.download = fn + ".jpg";
                                 if (extras && typeof extras === "object") {
                                     for (var k in extras) {
                                         if (extras.hasOwnProperty(k)) {
@@ -207,9 +206,7 @@ $(function(){
 
                         if (window.navigator.standalone) {
                             // iOS webapp
-                            // do_create_link({rel: "external"});
-                            alert("open new link..");
-                            window.open(url, "new");
+                            do_create_link({rel: "external", target: "_blank"});
                         }
                         else if (is_mobile()) {
                             // mobile safari etc
@@ -224,7 +221,7 @@ $(function(){
                             var default_title = $(".caption:first").text(), 
                                 fn = prompt("ファイル名（.pngは不要）", default_title ? default_title : "コダック");
                             if (fn) {
-                                do_create_link();
+                                do_create_link({download: fn + ".jpg"});
                             }
                         }
                     }
