@@ -212,10 +212,7 @@ $(function(){
                         if (is_debug||window.navigator.standalone) {
                             // iOS webapp
                             // http://stackoverflow.com/questions/7930001/force-link-to-open-in-mobile-safari-from-a-web-app-with-javascript
-                            var a = do_create_link({href: "img.html#" + url, target: "_blank"}, true),
-                                dispatch = document.createEvent("HTMLEvents");
-                            dispatch.initEvent("click", true, true);
-                            a.dispatchEvent(dispatch);
+                            do_create_link({href: "img.html#" + url, target: "_blank", rel: "external"}),
                         }
                         else if (is_mobile()) {
                             // mobile safari etc
